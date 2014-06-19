@@ -6,7 +6,8 @@ import com.thoughtworks.galaxyconverter.type.Type;
 /**
  * Created by ashwini on 19/06/14.
  */
-public interface Rule<T> {
+public abstract class AbstractRomanRule<T> implements Rule<T>{
 
-    boolean isValid(ParseItem<T> parseItem , Type<T> currentType);
+
+
 }
