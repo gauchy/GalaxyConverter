@@ -1,20 +1,20 @@
 package com.thoughtworks.galaxyconverter.rule;
 
-import com.thoughtworks.galaxyconverter.state.ParseItem;
+import com.thoughtworks.galaxyconverter.state.Token;
 import com.thoughtworks.galaxyconverter.type.Type;
 
 /**
  * Created by ashwini on 20/06/14.
  */
-public class SpecialRepeatitionRule<T> extends AbstractRomanRule<T> {
+public class SpecialRepeatitionRule implements Rule {
 
 
-    SpecialRepeatitionRule()
+    public SpecialRepeatitionRule()
     {
 
     }
     @Override
-    public boolean isValid(ParseItem<T> parseItem, Type<T> currentType) {
+    public boolean isValid(Token token, Type currentType) {
 
     	//TODO - Refractor
     	
@@ -29,15 +29,15 @@ public class SpecialRepeatitionRule<T> extends AbstractRomanRule<T> {
         elements[count-1] = currentType;
 
         //fill the last file elements in array
-        while(parseItem.hasPrevious())
+        while(token.hasPrevious())
         {
         	count--;
-            elements[count-1] = parseItem.prev.getType();
+            elements[count-1] = token.prev.getType();
             
-            if(parseItem.prev.getType().equals(currentType))
+            if(token.prev.getType().equals(currentType))
             	occuranceCount++;
             
-            parseItem = parseItem.prev;
+            token = token.prev;
             
             
             if(count ==0)

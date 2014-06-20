@@ -1,12 +1,18 @@
 package com.thoughtworks.galaxyconverter.state;
 
+
 /**
  * Created by ashwini on 19/06/14.
  */
-public class RomanParseItemBuilder<T> implements ParseItemBuilder<T>{
+public class RomanTokenBuilder implements TokenBuilder {
+
     @Override
-    public ParseItem<T> buildParseItem(String arg)
+    public Token buildTokens()
     {
+    	
         return null;
     }
+    
+    
+    
 }

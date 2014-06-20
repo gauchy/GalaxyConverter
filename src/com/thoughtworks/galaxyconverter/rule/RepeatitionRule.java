@@ -1,30 +1,30 @@
 package com.thoughtworks.galaxyconverter.rule;
 
-import com.thoughtworks.galaxyconverter.state.ParseItem;
+import com.thoughtworks.galaxyconverter.state.Token;
 import com.thoughtworks.galaxyconverter.type.Type;
 
 /**
  * Created by ashwini on 20/06/14.
  */
-public class RepeatitionRule<T> extends AbstractRomanRule<T> {
+public class RepeatitionRule implements Rule {
 
     int repeatCount;
-    RepeatitionRule(int repeatCount)
+    public RepeatitionRule(int repeatCount)
     {
         this.repeatCount = repeatCount;
     }
 
     @Override
-    public boolean isValid(ParseItem<T> parseItem, Type<T> currentType)
+    public boolean isValid(Token token, Type currentType)
     {
         int count =1;
-        if(parseItem.hasPrevious())
+        if(token.hasPrevious())
         {
 
-             if(currentType.equals(parseItem.prev))
+             if(currentType.equals(token.prev))
                  count++;
              
-             parseItem = parseItem.prev;
+             token = token.prev;
 
         }
         //if count is less or equal to allowed repeat count then return valid
