@@ -2,12 +2,12 @@ package com.thoughtworks.galaxyconverter.state;
 
 import com.thoughtworks.galaxyconverter.evaluate.Evaluator;
 import com.thoughtworks.galaxyconverter.parser.Parser;
-import com.thoughtworks.galaxyconverter.type.Type;
+import com.thoughtworks.galaxyconverter.grammar.Type;
 
 /**
  * Created by ashwini on 19/06/14.
  */
-public abstract class Token {
+public  class Token {
 
     public Token next;
     public Token prev;
@@ -33,14 +33,12 @@ public abstract class Token {
 
     public boolean hasNext()
     {
-        return false;
-        //TODO
+        return next != null;
     }
 
     public boolean hasPrevious()
     {
-        return false;
-        //TODO
+        return prev !=null;
     }
 
 

@@ -1,4 +1,4 @@
-package com.thoughtworks.galaxyconverter.type;
+package com.thoughtworks.galaxyconverter.grammar;
 
 /**
  * Created by ashwini on 19/06/14.

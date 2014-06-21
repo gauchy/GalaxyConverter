@@ -5,5 +5,5 @@ package com.thoughtworks.galaxyconverter.state;
  */
 public interface TokenBuilder {
 
-      public Token buildTokens();
+      public Token buildTokens() throws Exception;
 }

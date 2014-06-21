@@ -1,7 +1,7 @@
 package com.thoughtworks.galaxyconverter.rule;
 
 import com.thoughtworks.galaxyconverter.state.Token;
-import com.thoughtworks.galaxyconverter.type.Type;
+import com.thoughtworks.galaxyconverter.grammar.Type;
 
 /**
  * Created by ashwini on 20/06/14.
@@ -14,9 +14,10 @@ public class SpecialRepeatitionRule implements Rule {
 
     }
     @Override
-    public boolean isValid(Token token, Type currentType) {
+    public void isValid(Token token) throws RuleException {
 
     	//TODO - Refractor
+        Type currentType = token.getType();
     	
         int repeatCount  = 5;
         
@@ -31,7 +32,7 @@ public class SpecialRepeatitionRule implements Rule {
         //fill the last file elements in array
         while(token.hasPrevious())
         {
-        	count--;
+            count--;
             elements[count-1] = token.prev.getType();
             
             if(token.prev.getType().equals(currentType))
@@ -44,13 +45,12 @@ public class SpecialRepeatitionRule implements Rule {
             	break;
         }
         
-        //if occurance is not 4 return valid else check 4th element in the array is different
-        if(occuranceCount != (repeatCount-1))
-        	return true;
-        else if(elements[repeatCount-2].equals(currentType))
-        	return false;
-        
-        return true;
+        if(count != 0)
+        	return;
+        //if occurance is not 4 its valid else check 4th element in the array is different
+        if(elements[repeatCount-2].equals(currentType))
+        	throw new RuleException("Special Repeatition rule broken");
+
         
         
         
