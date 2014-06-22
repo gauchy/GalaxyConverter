@@ -29,6 +29,9 @@ public class SpecialRepeatitionRuleTest {
 		tok3.prev = tok2;
 		tok2.next = tok3;
 		
+		Token tok4= new Token();
+		tok4.prev = tok3;
+		tok3.next = tok4;
 
 		testNegative(gm,start,rule);
 		testPositive(gm,start,rule);
@@ -38,11 +41,12 @@ public class SpecialRepeatitionRuleTest {
 		//XXIX should pass
 		start.setType(gm.getType("X"));
 		start.next.setType(gm.getType("X"));
-		start.next.next.setType(gm.getType("I"));
-		start.next.next.next.setType(gm.getType("X"));
+		start.next.next.setType(gm.getType("X"));
+		start.next.next.next.setType(gm.getType("I"));
+		start.next.next.next.next.setType(gm.getType("X"));
 		try
 		{
-			rule.isValid(start.next.next.next);
+			rule.isValid(start.next.next.next.next);
 			
 			
 		}
@@ -59,9 +63,10 @@ public class SpecialRepeatitionRuleTest {
 		start.next.setType(gm.getType("I"));
 		start.next.next.setType(gm.getType("X"));
 		start.next.next.next.setType(gm.getType("X"));
+		start.next.next.next.next.setType(gm.getType("X"));
 		try
 		{
-			rule.isValid(start.next.next.next);
+			rule.isValid(start.next.next.next.next);
 			fail("Rule not broken!!");
 			
 		}

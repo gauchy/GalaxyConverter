@@ -5,27 +5,9 @@ import com.thoughtworks.galaxyconverter.parser.Parser;
 
 public class RomanXMLGrammar implements Grammar {
 
-	private String xmlFileName = null; 
-	private RomanXMLGrammar instance;
-	public RomanXMLGrammar getInstance(String xmlFileName)
-	{
-		synchronized (instance) {
-			if(instance == null)
-			{
-				instance = new RomanXMLGrammar(xmlFileName);
-			}
-			return instance;
-			
-		}
-	}
-	public RomanXMLGrammar getInstance() throws Exception
-	{
-		if(instance == null)
-			throw new Exception("XML grammar not initialised");
-		return instance;
-		
-	}
 	
+	private String xmlFileName;
+
 	RomanXMLGrammar(String xmlFileName)
 	{
 		

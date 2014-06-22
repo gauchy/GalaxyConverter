@@ -1,9 +1,9 @@
 package com.thoughtworks.galaxyconverter.evaluate;
 
-import com.thoughtworks.galaxyconverter.state.TokenContext;
+import com.thoughtworks.galaxyconverter.state.Token;
 
 public interface Evaluator {
-	
-	TokenContext evaluate(TokenContext tokenContext);
+	//evaluate token
+	Float evaluate(Token token);
 
 }

@@ -5,7 +5,7 @@ package com.thoughtworks.galaxyconverter.grammar;
  */
 public class Type
 {
-    int value ;
+    float value ;
     protected String name;
     protected int order;
 
@@ -24,15 +24,17 @@ public class Type
         this.order = order;
     }
 
-    public int getValue()
+    public float getValue()
     {
         return value;
     }
-    public void setValue(int value)
+    public void setValue(float value)
     {
+    	this.value = value;
     	
     }
-
+    
+    @Override
     public boolean equals(Object obj)
     {
         if(obj instanceof Type)

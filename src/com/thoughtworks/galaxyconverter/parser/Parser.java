@@ -8,5 +8,6 @@ import com.thoughtworks.galaxyconverter.state.Token;
  */
 public interface Parser {
 	boolean validate(Token token) throws RuleException;
+	Float evaluate(Token token);
 
 }

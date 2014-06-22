@@ -9,7 +9,7 @@ public class BeforeRule implements Rule {
 	@Override
 	public void isValid(Token token) throws RuleException {
 		
-		//if the prev  and prev to prev element is smaller then return false else true
+		//if the prev  and prev to prev element is smaller then invalidate
 		int currentOrder = token.getType().getOrder();
 		int beforeOrder = Integer.MAX_VALUE;
 		int count = 2;

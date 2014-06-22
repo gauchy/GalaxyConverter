@@ -23,21 +23,18 @@ public class SpecialRepeatitionRule implements Rule {
         
         int count =repeatCount;
         
-        //Total occurance of currentType
-        int occuranceCount = 1;
         
         Type[] elements = new Type[repeatCount];
         elements[count-1] = currentType;
+        count--;
 
-        //fill the last file elements in array
+        //fill the last  elements in array
         while(token.hasPrevious())
         {
-            count--;
+            
             elements[count-1] = token.prev.getType();
-            
-            if(token.prev.getType().equals(currentType))
-            	occuranceCount++;
-            
+           
+            count--;
             token = token.prev;
             
             

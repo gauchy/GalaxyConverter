@@ -1,19 +1,14 @@
 package com.thoughtworks.galaxyconverter.evaluate;
 
-import com.thoughtworks.galaxyconverter.state.TokenContext;
+import com.thoughtworks.galaxyconverter.state.Token;
 
 
 public class DefaultEvaluator implements Evaluator {
 
 	@Override
-	public TokenContext evaluate(TokenContext tokenContext)
+	public Float evaluate(Token token)
 	{
-
-
-		return null;
+		return token.getType().getValue();
 	}
-
-
-	
 
 }
